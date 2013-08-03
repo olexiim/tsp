@@ -5,6 +5,7 @@ It allows users to add their own puzzles and methods for solving this TSP.
 This is a main module for the TSP Problem Solver.
 
 From Wikipedia:
+
     The travelling salesman problem (TSP) or travelling salesperson problem
     asks the following question: Given a list of cities and the distances 
     between each pair of cities, what is the shortest possible route that 

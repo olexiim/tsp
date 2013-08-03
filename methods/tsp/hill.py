@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from basicmethod import BasicMethod
 from methods.statrecord import StatRecord
 from time import time
-from numpy.random import randint
+from numpy.random import randint, random
 
 class HillClimbing(BasicMethod):
     """Hill climbing local search method implementation for the TSP problem.
@@ -58,7 +58,7 @@ class HillClimbing(BasicMethod):
         ever_found_best_state = input_state.copy()
         state, value = input_state.copy(), self.calc_solution_cost(input_state)
         stat.solution_cost = value
-        while(True):
+        while True:
 #            print '{:.2f}'.format(value)
             self.send_current_cost(value, stat.solution_cost)
             if time()-start_time > self._run_time_limit:
@@ -93,17 +93,16 @@ class HillClimbingWithSideMoves(BasicMethod):
     The class reimplements BasicMethod.run function.
 
     Attributes:
-        _side_moves_limit: amount of maximum allowed side moves
         Please refer to BasicMethod class description    
     """
     
     _name = "HC with side moves"
     _short_name = "HC + side moves"
     _type = "Local"
-    _side_moves_limit = 100
+    _disabled = True
     
     def run(self, input_state, stat=StatRecord()):
-        """Runs Hill climbing local search strategy to solve the TSP problem.
+        """Runs Hill with side moves search strategy to solve the TSP problem.
         
         Args:
             Please refer to BasicMethod.run description
@@ -114,7 +113,6 @@ class HillClimbingWithSideMoves(BasicMethod):
         start_time = time()
         super(HillClimbingWithSideMoves, self).run(input_state, stat)
         
-        side_moves_num = 0
         ever_found_best_state = input_state.copy()
         state, value = input_state.copy(), self.calc_solution_cost(input_state)
         stat.solution_cost = value
@@ -125,23 +123,12 @@ class HillClimbingWithSideMoves(BasicMethod):
                 return ever_found_best_state, "Run time limit has been reached"
                 
             new_states = self.get_neighbors(state)
-            best_state, best_value = None, float('inf')
-            for new_state in new_states:
-                v = self.calc_solution_cost(new_state)
-                if v<best_value and v<=value:
-                    best_state, best_value = new_state, v
-                    
-            if not best_state:
-                break
-            if best_value==value:
-                if side_moves_num==self._side_moves_limit:
-                    break
-                else:
-                    side_moves_num += 1
-            else:
-                side_moves_num = 0
             
-            state, value = best_state, best_value
+            #
+            # TODO: Write your implementation of the 
+            # Hill climbing local search method with side moves
+            #
+            
             self.send_state(state, value)
 #            print state, value
             if value<stat.solution_cost:
@@ -166,9 +153,10 @@ class RandomHillClimbing(BasicMethod):
     _name = "Random hill climbing"
     _short_name = "Random HC"
     _type = "Local"
+    _disabled = True
     
     def run(self, input_state, stat=StatRecord()):
-        """Runs Hill climbing local search strategy to solve the TSP problem.
+        """Runs random hill climbing local search strategy to solve the TSP
         
         Args:
             Please refer to BasicMethod.run description
@@ -187,13 +175,16 @@ class RandomHillClimbing(BasicMethod):
             self.send_current_cost(value, stat.solution_cost)
             if time()-start_time > self._run_time_limit:
                 return ever_found_best_state, "Run time limit has been reached"
-                
-            new_states = [x for x in self.get_neighbors(state) if self.calc_solution_cost(x)<=value]
-            if not new_states:
-                break
             
-            state = new_states[randint(0,len(new_states))]
-            value = self.calc_solution_cost(state)
+            new_states = self.get_neighbors(state)
+            
+            #
+            # TODO: Write your implementation of the 
+            # Random hill climbing local search method with side moves
+            # Use randint or random functions for randomize stuff
+            # Refer to help(numpy.random.randint) and help(numpy.random.random)
+            #
+            
             self.send_state(state, value)
 #            print state, value
             if value<stat.solution_cost:

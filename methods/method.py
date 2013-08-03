@@ -95,15 +95,10 @@ class Method(object):
             stat: object of type StatRecord that fill store all statistics
             
         Returns:
-            Result of the method call in format [True/False, Message], where
-            first parameter shows if the method solved a problem, while the 
+            Result of the method call in format [State, Message], where
+            first parameter stores an ever found best state, while the 
             second parameter contains additional message in string format
             for GUI application.
-            
-            A goal state (or a best found state if goal was not found) is 
-            stored back to the "input_state" variable.
-            Goal state's value and its depth in a search tree are stored
-            to the stat.heuristic_value and stat.goal_depth variables.
         """
         stat.clear()
         stat.problem = "Unknown"
