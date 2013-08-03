@@ -282,14 +282,12 @@ class MainWindow(QtGui.QMainWindow):
         self.run_timer.timeout.connect(self.update_timer)
         
         # init stat table
-        self.ui.stat_table.setHorizontalHeaderLabels(["##","Problem","Method","Neighborhood","Solution cost","Time, sec", "Overall states"])
-        self.ui.stat_table.setColumnWidth(0, 30)
-        self.ui.stat_table.setColumnWidth(1, 100)
-        self.ui.stat_table.setColumnWidth(2, 130)
-        self.ui.stat_table.setColumnWidth(3, 150)
-        self.ui.stat_table.setColumnWidth(4, 100)
-        self.ui.stat_table.setColumnWidth(5, 60)
-        self.ui.stat_table.setColumnWidth(6, 80)
+        header_labels = ["##","Problem","Method","Neighborhood",
+                "Solution cost","Time, sec", "Overall states"]
+        self.ui.stat_table.setHorizontalHeaderLabels(header_labels)
+        self.ui.stat_table.resizeColumnsToContents() # autoresize based on header text width
+        self.ui.stat_table.setColumnWidth(1, 110) # extend Problem header width
+        self.ui.stat_table.setColumnWidth(2, 120) # extend Problem header width
         self.ui.stat_table.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.ui.stat_table.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         
