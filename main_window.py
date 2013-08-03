@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'main_window.ui'
 #
-# Created: Sat Aug 03 15:43:12 2013
-#      by: PyQt4 UI code generator 4.9.5
+# Created: Sun Aug  4 00:18:28 2013
+#      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -136,7 +136,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.runtime_chart_frame)
         self.frame_2 = QtGui.QFrame(self.runtime_tab)
         self.frame_2.setMinimumSize(QtCore.QSize(100, 0))
-        self.frame_2.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.frame_2.setMaximumSize(QtCore.QSize(130, 16777215))
         self.frame_2.setFrameShape(QtGui.QFrame.NoFrame)
         self.frame_2.setFrameShadow(QtGui.QFrame.Raised)
         self.frame_2.setLineWidth(0)
@@ -180,7 +180,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.main_splitter)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 678, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 678, 22))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuProblem = QtGui.QMenu(self.menubar)
         self.menuProblem.setObjectName(_fromUtf8("menuProblem"))
@@ -257,7 +257,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHistory.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tab_widget.setCurrentIndex(0)
+        self.tab_widget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

@@ -175,7 +175,7 @@
         <enum>QTabWidget::Triangular</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="stat_tab">
         <attribute name="title">
@@ -295,7 +295,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>100</width>
+             <width>130</width>
              <height>16777215</height>
             </size>
            </property>
@@ -420,7 +420,7 @@
      <x>0</x>
      <y>0</y>
      <width>678</width>
-     <height>18</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuProblem">
