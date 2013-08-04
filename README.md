@@ -2,8 +2,6 @@ TSP Problem Solver is a software to solve travelling salesman problem using
 search paradigm. It provides GUI to display obtained solutions.
 It allows users to add their own puzzles and methods for solving this TSP.
 
-This is a main module for the TSP Problem Solver.
-
 From Wikipedia:
 
     The travelling salesman problem (TSP) or travelling salesperson problem
@@ -28,7 +26,7 @@ Tips of how to create your own search method.
     create a method class that inherited from the BasicMethod class 
     (methods/tsp/basicmethod.py). You should place a new method's file to the 
     folder of the problem (methods/tsp). When you finished creating your method 
-    it will be allowed in the TSP Problem Solver main window. For more details 
+    it will be accessible in the TSP Problem Solver main window. For more details 
     please refer a method template in methods/tsp/method_template.py file. 
     
 Tips of how to create your own state neighborhoods.
